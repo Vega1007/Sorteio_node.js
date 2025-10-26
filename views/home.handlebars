@@ -1,0 +1,37 @@
+<header>
+    <h2>Cadastro para o sorteio</h2>
+    
+    {{#if success_msg}}
+        <div id="message" class="success">
+            {{success_msg}}
+        </div>
+    {{/if}}
+    {{#if error_msg}}
+        <div id="message" class="error">
+            {{error_msg}}
+        </div>
+    {{/if}}
+
+    <form action="/" method="POST">
+        <div class="input-box">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+        </div>
+        <div class="input-box">
+            <label for="number">Número de Telefone:</label>
+            <input type="text" id="number" name="number" placeholder="Digite o numero" required>
+        </div>
+        <button type="submit">Cadastrar</button>
+    </form>
+    
+    <a href="/participantes">Ir para a página de sorteio</a>
+</header>
+
+<script>
+    const message = document.getElementById('message');
+    if (message && message.classList.contains('success')) {
+        setTimeout(() => {
+            message.style.display = 'none';
+        }, 8000);
+    }
+</script>

@@ -1,0 +1,37 @@
+{{!-- views/participantes.handlebars --}}
+
+<div class="container">
+  <h1>Participantes Cadastrados</h1>
+
+  <div class="actions">
+    {{!-- botão de sortear: envia POST para /sorteio --}}
+    {{#if participantes.length}}
+      <form id="sorteioForm" action="/sorteio" method="POST" novalidate>
+        <button type="submit" class="button button-primary">🎲 Sortear vencedor</button>
+      </form>
+    {{else}}
+      <button class="button button-primary" disabled>🎲 Sortear vencedor</button>
+    {{/if}}
+
+    <a href="/" class="button">Voltar para o cadastro</a>
+  </div>
+
+  <div class="participantes-lista">
+    {{#if participantes.length}}
+      {{#each participantes}}
+        <div class="participante-card">
+          <h2>{{this.name}}</h2>
+          <p>Número para contato: <strong>{{this.number}}</strong></p>
+
+          <form action="/delete/{{this.id}}" method="POST" style="margin-top:10px;">
+            <button type="submit" class="button button-danger" onclick="return confirm('Tem certeza que deseja apagar este participante?')">
+              🗑️ Excluir
+            </button>
+          </form>
+        </div>
+      {{/each}}
+    {{else}}
+      <p class="sem-participantes">Nenhum participante cadastrado ainda.</p>
+    {{/if}}
+  </div>
+</div>
