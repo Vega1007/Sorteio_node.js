@@ -20,4 +20,5 @@ Bibliotecas utilizadas
 
  O SQLite foi utilizado por ser meu primeiro projeto, com o objetivo de adquirir experiência antes de utilizar outros bancos de dados
 
- Para inicializar o projeto é necessario instalar as bibliotecas e iniciar com **NPM RUN DEV** e no navegador colocar: localhost:3000. 
+ Para a incialização do projeto é preciso instalar as bibliotecas, no terminal inciar com *npm run dev* mas antes (tambpem mudar as configurações no package.json no “scripts“: { “dev“: “nodemon server.js“).
+ E no navegador: localhost:8000
